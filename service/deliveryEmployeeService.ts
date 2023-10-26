@@ -6,7 +6,6 @@ const axios = require('axios');
     try{
         const response = await axios.get('http://localhost:8080/api/employees/delivery')
 
-        console.log(response)
         return response.data
     }catch(e){
         return new Error('Could not get Delivery Employees')
@@ -16,9 +15,6 @@ const axios = require('axios');
 
 module.exports.getDeliveryEmployee = async function(id: string, token: string): Promise<DeliveryEmployee> {
     try {
-
-        console.log(token)
-
         const response = await axios.get('http://localhost:8080/api/employees/delivery/'+id, { params: {token: token} })
 
         return response.data
