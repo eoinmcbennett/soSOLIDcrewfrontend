@@ -33,6 +33,7 @@ app.use(session({secret: 'NOT HARDCODED SECRET', cookie: {maxAge: 600000}}));
 declare module "express-session"{
     interface SessionData{
         deliveryEmployee: DeliveryEmployee;
+        token: string;
    }
 }
 
@@ -40,12 +41,6 @@ app.listen(3000, ()=>{
     console.log('Server is running on port 3000')
 });
 
-//Express bottles
-app.get('/', (req:Request,res:Response)=>{
-    res.render('pizza',{
-        title: "New Pizza Time"
-    })
-});
-
 require('./controller/deliveryEmployeeController')(app);
+require('./controller/authController')(app);
 
