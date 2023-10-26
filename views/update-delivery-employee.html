@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Delivery Employee</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+
+<body>
+    <header class="bg-dark text-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Employee</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="container mt-4">
+        <section id="form" class="bg-light py-5">
+            <div class="container">
+                <p>Enter order details</p>
+                {% if errormessage %}
+                <div class="alert alert-danger" role="alert">
+                    {{ errormessage }}
+                </div>
+                {% endif %}
+                <form action="/update-delivery-employee" method="post">
+
+                    <div class="form-group">
+                        <label for="name">First Name</label>
+                        <input type="text" id="firstName" name="firstName" class="form-control" value="{{firstName}}" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name">Last Name</label>
+                        <input type="text" id="lastName" name="lastName" class="form-control" value="{{lastName}}" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="price">Salary</label>
+                        <input type="salary" id="salary" name="salary" class="form-control" value="{{salary}}" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name">Bank Account Number</label>
+                        <input type="text" id="bankAccountNumber" name="bankAccountNumber" class="form-control" value="{{bankAccountNumber}}" required>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>
