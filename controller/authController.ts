@@ -1,6 +1,7 @@
 import { Request, Response, Application } from "express";
 import { Login } from "../model/login";
 import { Register } from "../model/register";
+import { log } from "console";
 const authService = require("../service/authService");
 const registerValidator = require("../validator/registrationValidator")
 
@@ -15,7 +16,9 @@ module.exports = function(app: Application) {
         try {
             req.session.token = await authService.login(data)
 
-            res.redirect("/pizza");
+            // console.log(req.session.token);
+
+            res.redirect("/login");
         } catch(e) {
             console.error(e)
 
