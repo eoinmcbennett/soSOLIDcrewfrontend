@@ -85,7 +85,7 @@ module.exports = function(app: Application){
         let data: DeliveryEmployee = req.body
         let id: Number
 
-        const error: string | null = deliveryEmployeeService.validateDeliveryEmployee(data)
+        const error: string | null = deliveryEmployeeValidator.validateDeliveryEmployee(data)
 
         if(error){
             throw new Error(error);
