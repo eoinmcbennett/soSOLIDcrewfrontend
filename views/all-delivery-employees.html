@@ -24,6 +24,7 @@
                                 <th scope="col">Salary</th>
                                 <th scope="col">Bank Account Number</th>
                                 <th scope="col">National Insurance Number</th>
+                                <th scope="col">Details</th>
                             </tr>
                         </thead>
 
@@ -34,6 +35,7 @@
                                 <td>{{ deliveryEmployee.salary }}</td>
                                 <td>{{ deliveryEmployee.bankAccountNumber }}</td>
                                 <td>{{ deliveryEmployee.nationalInsuranceNumber }}</td>
+                                <td><a href = '/deliveryemployee/{{ deliveryEmployee.employeeId }}'>Details</a></td>
                             </tr>
                             {% endfor %}
                         </tbody>
