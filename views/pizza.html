@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Pizza Time</title>
+</head>
+
+<body>
+    <header class="bg-dark text-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>{{title}}</h1>
+                    <nav>
+                        <ul class="nav">
+                            <li class="nav-item"><a class="nav-link" href="#menu">Menu</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#location">Locations</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#contact">Contact Us</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <main class="container mt-4">
+        <section id="menu">
+            <h2>Our Menu</h2>
+            <p>Check out our delicious pizza options!</p>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <img class="card-img-top" src="https://picsum.photos/200/150?random=1" alt="Pepperoni Pizza">
+                        <div class="card-body">
+                            <li class="card-title">Pepperoni Pizza</li>
+                        </div>
+                        </img>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <img class="card-img-top" src="https://picsum.photos/200/150?random=2" alt="Margherita Pizza">
+                        <div class="card-body">
+                            <li class="card-title">Margherita Pizza</li>
+                        </div>
+                        </img>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <img class="card-img-top" src="https://picsum.photos/200/150?random=3" alt="Hawaiian Pizza">
+                        <div class="card-body">
+                            <li class="card-title">Hawaiian Pizza</li>
+                        </div>
+                        </img>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <img class="card-img-top" src="https://picsum.photos/200/150?random=4" alt="Supreme Pizza">
+                        <div class="card-body">
+                            <li class="card-title">Supreme Pizza</li>
+                        </div>
+                        </img>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="location" class="mt-4">
+            <h2>Our Locations</h2>
+            <p>Find a Pizza Near You!</p>
+            <div class="list-group">
+                <a href="#" class="list-group-item">New York</a>
+                <a href="#" class="list-group-item">Los Angeles</a>
+                <a href="#" class="list-group-item">Chicaogo</a>
+        </div>
+        </section>
+
+        <section id="contact" class="bg-light py-5">
+            <div class="container">
+            <h2>Contact Us</h2>
+            <p>Send us a message</p>
+            <form>
+                <div class="form-group">
+                    <label for="name" >Name:</label>
+                    <input type="text" id="name" name="name" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="email" >Email:</label>
+                    <input type="text" id="email" name="email" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="message" >Message:</label>
+                    <input type="text" id="message" name="message" class="form-control" required>
+                </div>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; Pizza Time 2023</p>
+    </footer>
+
+    <script src="public/script.js"></script>
+</body>
+
+</html>
