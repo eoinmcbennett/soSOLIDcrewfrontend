@@ -13,8 +13,6 @@ module.exports.login = async function(login: Login): Promise<string> {
 
 
     module.exports.register = async function(login: Login): Promise<boolean> {
-
-        console.log(login);
         try {
             const response = await axios.post("http://localhost:8080/api/register",login)
             

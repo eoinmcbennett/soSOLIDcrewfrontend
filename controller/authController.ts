@@ -16,9 +16,7 @@ module.exports = function(app: Application) {
         try {
             req.session.token = await authService.login(data)
 
-            // console.log(req.session.token);
-
-            res.redirect("/register");
+            res.redirect("/");
         } catch(e) {
             console.error(e)
 
