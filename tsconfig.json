@@ -3,8 +3,7 @@
         "outDir": "./dist",
         "target": "es5",
         "sourceMap": true,
-        "noImplicitAny": true,
-        "types": ["@types/express-session", "node"]
+        "noImplicitAny": true
     },
     "include": ["./**/*"],
     "exclude": [

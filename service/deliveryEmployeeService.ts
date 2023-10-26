@@ -3,14 +3,14 @@ import { DeliveryEmployeeUpdateRequest } from "../model/deliveryEmployeeUpdateRe
 
 const axios = require('axios');
 
-    module.exports.getAllDeliveryEmployees = async function (token:string){
-        try{
-            const response = await axios.get('http://localhost:8080/api/employees/delivery/',{params: {token:token}})
-                return response.data
-        }catch(e){
-            return new Error('Could not get Delivery Employees')
-        }
-    }    
+module.exports.getAllDeliveryEmployees = async function (token:string){
+    try{
+        const response = await axios.get('http://localhost:8080/api/employees/delivery/',{params: {token:token}})
+        return response.data
+    }catch(e){
+        return new Error('Could not get Delivery Employees')
+    }
+}    
 
 module.exports.deleteDeliveryEmployee = async function(id:number,token:string) : Promise<boolean> {
     console.log(id)
@@ -31,6 +31,18 @@ module.exports.getDeliveryEmployee = async function(id: string, token: string): 
         throw new Error('Could not get Delivery Employee')
     }
 }
+    
+module.exports.createDeliveryEmployee = async function (deliveryEmployee: DeliveryEmployee, token:string ){
+
+    try{
+            const response = await axios.post('http://localhost:8080/api/employees/delivery', deliveryEmployee, {params: { token: token}})
+            console.log(response)
+            return response.data
+        }catch(e){
+            throw new Error('Could not create Delivery Employee')
+        }
+}
+  
 
 
 module.exports.updateDeliveryEmployee = async (id: string, deliveryEmployee: DeliveryEmployeeUpdateRequest, token: string): Promise<DeliveryEmployeeUpdateRequest> => {

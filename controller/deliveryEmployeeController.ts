@@ -3,6 +3,7 @@ import { DeliveryEmployee } from "../model/deliveryEmployee";
 import { DeliveryEmployeeUpdateRequest } from "../model/deliveryEmployeeUpdateRequest";
 
 const deliveryEmployeeService = require('../service/deliveryEmployeeService')
+const deliveryEmployeeValidator = require("../validator/deliveryEmployeeValidator")
 
 module.exports = function(app: Application){
 
@@ -61,7 +62,11 @@ module.exports = function(app: Application){
 
     })
 
-    app.post('/updatedeliveryemployee/:id', async (req: Request,res:Response) =>{
+    app.get('/create-delivery-employee', async (req: Request, res: Response) =>{
+        res.render("create-delivery-employee")
+    })
+  
+   app.post('/updatedeliveryemployee/:id', async (req: Request,res:Response) =>{
         let data: DeliveryEmployeeUpdateRequest;
         data = req.body
 
@@ -75,6 +80,26 @@ module.exports = function(app: Application){
             res.render('update-delivery-employee', req.body)
         }
     })
+
+  app.post("/create-delivery-employee", async (req: Request, res: Response) => {
+        let data: DeliveryEmployee = req.body
+        let id: Number
+
+        const error: string | null = deliveryEmployeeService.validateDeliveryEmployee(data)
+
+        if(error){
+            throw new Error(error);
+        }
+        
+        try {
+            id = await deliveryEmployeeService.createDeliveryEmployee(data, req.session.token)
+            console.log(id)
+            res.redirect("/deliveryemployee/" + id)
+        }catch (e) {
+            console.error(e);
+            res.locals.errormessage = e.message;
+            res.render("create-delivery-employee",data)
+        }
+    })
+   
 }
-
-

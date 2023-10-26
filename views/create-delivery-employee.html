@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Create Employee</title>
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        </head>
+        <body>
+            <header class="bg-dark text=light">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1>Create Employee</h1>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <main class="container mt-4">
+                <section id="form" class="bg-light py-5">
+                    <div class="container">
+                        <p>Enter delivery employee details</p>
+                        <form action="/create-delivery-employee" method="post">
+                            <div class="form-group">
+                                <label for="firstName">First Name</label>
+                                <input type="text" id="firstName" name="firstName" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name</label>
+                                <input type="text" id="lastName" name="lastName" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="salary">Salary</label>
+                                <input type="number" min="0" step="any" id="salary" name="salary" class="form-control" required> 
+                            </div>
+                            <div class="form-group">
+                                <label for="bankAccountNumber">Bank Account Number</label>
+                                <input type="text" id="bankAccountNumber" name="bankAccountNumber" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="nationalInsuranceNumber">National Insurance Number</label>
+                                <input type="text" id="nationalInsuranceNumber" name="nationalInsuranceNumber" class="form-control" required>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                </section>
+            </main>
+        </body>
+</html>
