@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    </head>
+    <body>
+        <header class="bg-dark text-light">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1>Get all delivery employees</h1>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main class="container mt-4">
+            <section id="deliveryEmployees" class="mt-4">
+                <h2></h2>
+                {% if deliveryEmployees.length > 0 %}
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Name</th>
+                                <th scope="col">Salary</th>
+                                <th scope="col">Bank Account Number</th>
+                                <th scope="col">National Insurance Number</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            {% for deliveryEmployee in deliveryEmployees %}
+                            <tr>
+                                <td>{{ deliveryEmployee.firstName +' '+ deliveryEmployee.lastName }}</td>
+                                <td>{{ deliveryEmployee.salary }}</td>
+                                <td>{{ deliveryEmployee.bankAccountNumber }}</td>
+                                <td>{{ deliveryEmployee.nationalInsuranceNumber }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                {% else %}
+                    There are no delivery employees
+                {% endif %}
+            </section>
+        </main>
+    </body>
+</html>
