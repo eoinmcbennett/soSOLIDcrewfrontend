@@ -15,6 +15,23 @@ module.exports = function(app: Application){
         }
         res.render('all-delivery-employees', {deliveryEmployees: deliveryEmployees})
 
+    app.get('/delete-delivery-employee', async(req: Request, res:Response) => {
+        res.render('delete-delivery-employee',{ deliveryEmployees: await deliveryEmployeeService.getDeliveryEmployees(req.session.token) })
+    })
+
+    app.post("/delete-delivery-employee",async(req: Request,res:Response) => {
+        let employeeId: number = req.body.employeeId;
+        try {
+            await deliveryEmployeeService.deleteDeliveryEmployee(employeeId,req.session.token);
+            res.locals.successmessage = "Sucessfully Deleted Delivery Employee"
+
+            res.render("delete-delivery-employee",{ deliveryEmployees: await deliveryEmployeeService.getDeliveryEmployees(req.session.token) })
+        } catch(e){
+            res.locals.errormessage = e.message
+            res.render("delete-delivery-employee",{ deliveryEmployees: await deliveryEmployeeService.getDeliveryEmployees(req.session.token) })
+        }
+    })
+
     app.get('/deliveryemployee/:id', async (req: Request, res: Response) => {
         let data: DeliveryEmployee
 
