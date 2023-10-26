@@ -16,7 +16,7 @@ module.exports = function(app: Application){
         }
         console.log("Hello world");
 
-        res.render('pizza.html',{orders:data})
+        res.send(data);
     })
 
 }
