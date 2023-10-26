@@ -36,6 +36,18 @@ module.exports = function(app: Application){
         }
     })
 
+    app.get('/deliveryemployee/:id', async (req: Request, res: Response) => {
+        let data: DeliveryEmployee
+
+        try {
+            data = await deliveryEmployeeService.getDeliveryEmployee(req.params.id, req.session.token)
+        } catch (error) {
+            console.error(error)
+        }
+
+        res.render('view-delivery-employee', { employee: data })
+    })
+
 }
 
 
