@@ -15,6 +15,7 @@ module.exports = function(app: Application){
             console.log(e);
         }
         res.render('all-delivery-employees', {deliveryEmployees: deliveryEmployees})
+    })
 
     app.get('/delete-delivery-employee', async(req: Request, res:Response) => {
         res.render('delete-delivery-employee',{ deliveryEmployees: await deliveryEmployeeService.getDeliveryEmployees(req.session.token) })
