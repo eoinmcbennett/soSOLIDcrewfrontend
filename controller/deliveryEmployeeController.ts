@@ -5,18 +5,15 @@ const deliveryEmployeeService = require('../service/deliveryEmployeeService')
 
 module.exports = function(app: Application){
 
-    app.get('/deliveryemployee', async(req: Request,res:Response) =>{
-        let data: DeliveryEmployee[];
+    app.get('/get-all-delivery-employee', async(req: Request,res:Response) =>{
+        let deliveryEmployees: DeliveryEmployee[];
 
         try {
-            data = await deliveryEmployeeService.getDeliveryEmployees()
-            console.log(data);
+            deliveryEmployees = await deliveryEmployeeService.getAllDeliveryEmployees(req.session.token)
         } catch (e) {
             console.log(e);
         }
-        console.log("Hello world");
-
-        res.send(data);
+        res.render('all-delivery-employees', {deliveryEmployees: deliveryEmployees})
     })
 
 }
