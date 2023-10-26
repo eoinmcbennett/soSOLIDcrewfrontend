@@ -1,0 +1,1 @@
+const dallan2:number=0;
