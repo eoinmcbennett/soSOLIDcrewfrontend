@@ -16,7 +16,7 @@ module.exports = function(app: Application) {
         try {
             req.session.token = await authService.login(data)
 
-            res.redirect("/");
+            res.redirect("/get-all-delivery-employee");
         } catch(e) {
             console.error(e)
 
