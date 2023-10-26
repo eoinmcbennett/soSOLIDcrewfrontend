@@ -19,6 +19,18 @@ module.exports = function(app: Application){
         res.send(data);
     })
 
+    app.get('/deliveryemployee/:id',async (req: Request, res: Response) => {
+        let data: DeliveryEmployee
+
+        try {
+            data = await deliveryEmployeeService.getDeliveryEmployee(req.params.id)
+        } catch (error) {
+            console.error(error)
+        }
+
+        res.render('view-delivery-employee', { employee: data })
+    })
+
 }
 
 
