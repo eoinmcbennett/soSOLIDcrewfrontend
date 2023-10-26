@@ -18,7 +18,7 @@ module.exports = function(app: Application) {
 
             // console.log(req.session.token);
 
-            res.redirect("/login");
+            res.redirect("/register");
         } catch(e) {
             console.error(e)
 
@@ -41,7 +41,11 @@ module.exports = function(app: Application) {
 
             res.render("register",req.body)
         }
-        authService.register(data as Login);
+        const login = new Login(data.username, data.password);
+        
+        authService.register(login);
+
+        res.redirect("/login");
     })
 
 }
