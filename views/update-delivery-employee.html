@@ -20,13 +20,13 @@
     <main class="container mt-4">
         <section id="form" class="bg-light py-5">
             <div class="container">
-                <p>Enter order details</p>
+                <p>Update Delivery Employee Details</p>
                 {% if errormessage %}
                 <div class="alert alert-danger" role="alert">
                     {{ errormessage }}
                 </div>
                 {% endif %}
-                <form action="/update-delivery-employee" method="post">
+                <form action="/updatedeliveryemployee/{{employeeId}}" method="post">
 
                     <div class="form-group">
                         <label for="name">First Name</label>
