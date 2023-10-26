@@ -32,6 +32,9 @@
             <h2>National Insurance Number</h2>
             {{ employee.nationalInsuranceNumber }}
 
+            <br>
+            <h3><a href = '/updatedeliveryemployee/{{employee.employeeId}}'>Edit</a></h3>
+
             {% else %}
             Could not find employee.
             {% endif %}

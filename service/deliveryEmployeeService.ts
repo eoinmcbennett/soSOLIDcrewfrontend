@@ -1,3 +1,6 @@
+import { DeliveryEmployee } from "../model/deliveryEmployee";
+import { DeliveryEmployeeUpdateRequest } from "../model/deliveryEmployeeUpdateRequest";
+
 const axios = require('axios');
 
     module.exports.getAllDeliveryEmployees = async function (token:string){
@@ -26,5 +29,22 @@ module.exports.getDeliveryEmployee = async function(id: string, token: string): 
         return response.data
     } catch {
         throw new Error('Could not get Delivery Employee')
+    }
+}
+
+
+module.exports.updateDeliveryEmployee = async (id: string, deliveryEmployee: DeliveryEmployeeUpdateRequest, token: string): Promise<DeliveryEmployeeUpdateRequest> => {
+    try {
+
+        const response = await axios({
+            method: 'put',
+            url: 'http://localhost:8080/api/employees/delivery/'+id,
+            data: deliveryEmployee,
+            params: {token: token}
+        })
+
+        return response.data
+    } catch {
+        throw new Error('Could not update delivery employee')
     }
 }
