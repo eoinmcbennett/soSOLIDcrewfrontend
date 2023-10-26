@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "outDir": "./dist",
+        "target": "es5",
+        "sourceMap": true,
+        "noImplicitAny": true,
+        "types": ["@types/express-session", "node"]
+    },
+    "include": ["./**/*"],
+    "exclude": [
+        "./node_modules/**/*",
+        "./dist/**/*"
+    ]
+}
