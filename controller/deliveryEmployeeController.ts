@@ -2,6 +2,7 @@ import { Application, Request, Response } from "express";
 import { DeliveryEmployee } from "../model/deliveryEmployee";
 
 const deliveryEmployeeService = require('../service/deliveryEmployeeService')
+const deliveryEmployeeValidator = require("../validator/deliveryEmployeeValidator")
 
 module.exports = function(app: Application){
 
@@ -28,7 +29,12 @@ module.exports = function(app: Application){
         let data: DeliveryEmployee = req.body
         let id: Number
 
-        console.log(data)
+        const error: string | null = deliveryEmployeeService.validateDeliveryEmployee(data)
+
+        if(error){
+            throw new Error(error);
+        }
+        
         try {
             id = await deliveryEmployeeService.createDeliveryEmployee(data, req.session.token)
             console.log(id)

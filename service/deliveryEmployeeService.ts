@@ -14,8 +14,7 @@ const axios = require('axios');
 }
     
     module.exports.createDeliveryEmployee = async function (deliveryEmployee: DeliveryEmployee, token:string ){
-            console.log(deliveryEmployee);
-            console.log(token);
+        
         try{
                 const response = await axios.post('http://localhost:8080/api/employees/delivery', deliveryEmployee, {params: { token: token}})
                 console.log(response)
